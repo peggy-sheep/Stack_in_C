@@ -15,6 +15,8 @@ int isFull(struct stack *p);
 void push(struct stack *p, int x);
 int pop(struct stack *p);	
 
+int i;
+
 int main(void) {
     	S.top = S1.top = -1;
 
@@ -25,7 +27,7 @@ int main(void) {
 
     	//push n numbers to stack
     	int x;
-    	for(int i=0; i<nums; i++){
+    	for(i=0; i<nums; i++){
 		scanf("%d",&x);
 		push(&S,x);
     	}
@@ -51,6 +53,8 @@ void push(struct stack *p, int x) {
 	}
 	else {  
 		//TODO: Write your code here!
+		p->top = p->top + 1;
+		p->data[p->top] = x; 
 	}	
 }
 
@@ -67,6 +71,10 @@ int pop(struct stack *p) {
 
 int isEmpty(struct stack *p) {
 	//TODO: Write your code here!
+	if (p->top == -1){
+		return 1;
+	}else
+		return 0;
 }
 
 int isFull(struct stack *p) {
